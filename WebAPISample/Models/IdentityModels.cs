@@ -18,7 +18,7 @@ namespace WebAPISample.Models
             return userIdentity;
         }
     }
-
+     
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Movie> Movies { get; set; }
