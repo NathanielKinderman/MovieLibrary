@@ -12,12 +12,12 @@ namespace WebAPISample.Controllers
     {
         ApplicationDbContext db;
         public MovieController()
-        { 
+        {
             db = new ApplicationDbContext();
 
         }
 
-        [HttpGet]// GET api/values
+        // GET api/values
         public IHttpActionResult Get()
         {
             IEnumerable<Movie> movies = db.Movies.ToList();
@@ -26,7 +26,7 @@ namespace WebAPISample.Controllers
         }
 
         // GET api/values/5
-        
+
         public IHttpActionResult Get(int id)
         {
             // Retrieve movie by id from db logic
@@ -44,7 +44,7 @@ namespace WebAPISample.Controllers
         }
 
         // PUT api/values/5 
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult Put(int id, [FromBody]Movie value)
         {
             var movieToEdit = db.Movies.FirstOrDefault();
@@ -56,15 +56,5 @@ namespace WebAPISample.Controllers
 
             // Update movie in db logic
         }
-
-        // DELETE api/values/5
-        [HttpPost]
-        public IHttpActionResult Delete(int id)
-        {
-            var movieToDelete = db.Movies.Find(id);
-            return Ok(movieToDelete);
-            // Delete movie from db logic
-        }
     }
-
 }
