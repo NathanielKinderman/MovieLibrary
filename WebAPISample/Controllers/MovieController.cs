@@ -47,7 +47,7 @@ namespace WebAPISample.Controllers
         [HttpPut]
         public IHttpActionResult Put(int id, [FromBody]Movie value)
         {
-            var movieToEdit = db.Movies.FirstOrDefault();
+            var movieToEdit = db.Movies.Find(id);
             movieToEdit.Title = value.Title;
             movieToEdit.Director = value.Director;
             movieToEdit.Genre = value.Genre;
