@@ -222,14 +222,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909101853466_Movie1.cs" />
-    <Compile Include="Migrations\201909101853466_Movie1.Designer.cs">
-      <DependentUpon>201909101853466_Movie1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111231315_Seeding.cs" />
-    <Compile Include="Migrations\201909111231315_Seeding.Designer.cs">
-      <DependentUpon>201909111231315_Seeding.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -335,14 +327,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909101853466_Movie1.resx">
-      <DependentUpon>201909101853466_Movie1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111231315_Seeding.resx">
-      <DependentUpon>201909111231315_Seeding.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

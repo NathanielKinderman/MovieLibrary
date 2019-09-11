@@ -31,7 +31,7 @@ namespace WebAPISample.Controllers
         {
             // Retrieve movie by id from db logic
             var movie = db.Movies.Find(id);
-            return Ok();
+            return Ok(movie);
         }
 
         // POST api/values
@@ -47,11 +47,12 @@ namespace WebAPISample.Controllers
         [HttpPut]
         public IHttpActionResult Put(int id, [FromBody]Movie value)
         {
-            var movieToEdit = db.Movies.FirstOrDefault();
+            var movieToEdit = db.Movies.Find(id);
             movieToEdit.Title = value.Title;
             movieToEdit.Director = value.Director;
             movieToEdit.Genre = value.Genre;
             db.SaveChanges();
+
             return Ok();
 
             // Update movie in db logic
