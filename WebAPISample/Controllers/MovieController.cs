@@ -39,8 +39,9 @@ namespace WebAPISample.Controllers
         public IHttpActionResult Post([FromBody]Movie value)
         {
             // Create movie in db logic
-            Movie movie = new Movie();
-            return Ok(movie);
+            db.Movies.Add(value);
+            db.SaveChanges();
+            return Ok();
         }
 
         // PUT api/values/5 

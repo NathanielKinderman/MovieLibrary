@@ -1,8 +1,10 @@
 (function($){
     function processForm( e ){
+      console.log("is in post method");
         var dict = {
         	Title : this["title"].value,
-        	Director: this["director"].value
+        	Director: this["director"].value,
+          Genre: this["genre"].value
         };
 
         $.ajax({
