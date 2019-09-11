@@ -3,21 +3,35 @@
 <head>
     <title>jQuery AJAX POST Form</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="movie.css">
 </head>
 <body>
-
+<u><b><h1 align= "center">Movie Library</h1></b></u>
+<b><h2 align= "center">Add A Movie To The Library</h2></b>
 <div id="response">
     <pre></pre>
 </div>
 
-<form id="my-form">
+<center><form id="my-form">
     <input type="text" name="title" placeholder="Title" />
     <input type="text" name="director" placeholder="Director" />
     <input type="text" name="genre" placeholder="Genre" />
 
     <button type="submit">Submit</button>
-</form>
-
+</form></center>
+<br>
+<br>
+<div style="width:700px;padding:20px;S">
+<center><table id="all-movies" class="table">
+  <tr>
+    <th>Title</th>
+    <th>Director</th>
+    <th>Genre</th>
+  </tr>
+  <tbody>
+  </tbody>
+</table></center>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="./app.js"></script>
 
