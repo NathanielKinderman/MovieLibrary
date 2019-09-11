@@ -10,36 +10,59 @@ namespace WebAPISample.Controllers
 {
     public class MovieController : ApiController
     {
-        [HttpGet]// GET api/values
-        public IEnumerable<Movie> Get()
-        {
+        ApplicationDbContext db;
+        public MovieController()
+        { 
+            db = new ApplicationDbContext();
 
+        }
+
+        [HttpGet]// GET api/values
+        public IHttpActionResult Get()
+        {
+            IEnumerable<Movie> movies = db.Movies.ToList();
             // Retrieve all movies from db logic
+            return Ok(movies);
+        }
+
+        // GET api/values/5
+        
+        public IHttpActionResult Get(int id)
+        {
+            // Retrieve movie by id from db logic
+            var movie = db.Movies.Find(id);
             return Ok();
         }
 
-        [HttpGet]// GET api/values/5
-        public string Get(int id)
-        {
-            // Retrieve movie by id from db logic
-            return "value";
-        }
-
-        [HttpPost]// POST api/values
-        public void Post([FromBody]Movie value)
+        // POST api/values
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]Movie value)
         {
             // Create movie in db logic
+            Movie movie = new Movie();
+            return Ok(movie);
         }
 
-        [HttpPut]// PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        // PUT api/values/5 
+        [HttpPost]
+        public IHttpActionResult Put(int id, [FromBody]Movie value)
         {
+            var movieToEdit = db.Movies.FirstOrDefault();
+            movieToEdit.Title = value.Title;
+            movieToEdit.Director = value.Director;
+            movieToEdit.Genre = value.Genre;
+            db.SaveChanges();
+            return Ok();
+
             // Update movie in db logic
         }
 
-        [HttpDelete]// DELETE api/values/5
-        public void Delete(int id)
+        // DELETE api/values/5
+        [HttpPost]
+        public IHttpActionResult Delete(int id)
         {
+            var movieToDelete = db.Movies.Find(id);
+            return Ok(movieToDelete);
             // Delete movie from db logic
         }
     }
