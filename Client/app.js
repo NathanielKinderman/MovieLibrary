@@ -1,6 +1,5 @@
 (function($){
     function processForm( e ){
-      console.log("is in post method");
         var dict = {
         	Title : this["title"].value,
         	Director: this["director"].value,
@@ -25,4 +24,5 @@
     }
 
     $('#my-form').submit( processForm );
+
 })(jQuery);

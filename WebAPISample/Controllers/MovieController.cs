@@ -18,7 +18,7 @@ namespace WebAPISample.Controllers
         }
 
         // GET api/values
-        public IHttpActionResult Get()
+        public IHttpActionResult GetAll()
         {
             IEnumerable<Movie> movies = db.Movies.ToList();
             // Retrieve all movies from db logic
