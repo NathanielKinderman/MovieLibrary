@@ -47,60 +47,46 @@ function getAllMovies(){
 
 $(document).ready(getAllMovies);
 
-//get by id
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//edit
-function editMovie(id){
-
-<<<<<<< HEAD
-$(document).ready(function(){
-  $.ajax({
-      url: 'https://localhost:44352/api/movie',
-      dataType: 'json',
-      type: 'get',
-      contentType: 'application/json',
-      data: JSON,
-      success: function ( data ){
-        var row = '';
-          $.each(data,function (index, obj){
-         row += "<tr><td>" + obj.Title + "</td><td>" + obj.Director + "</td><td>" + obj.Genre + "</td><tr>";
-          });
-          $("#all-movies").append(row);
-      }
-  });
-});
 
 //getbyid
 function getMovieId(id){
-  $ajax({
-    url: 'https://localhost:44352/api/movie/ + id +/'',
+  $.ajax({
+    url: `https://localhost:44352/api/movie/${id}/`,
     dataType: 'json',
     type: 'get',
     contentType: 'application/json',
     data: JSON,
     success: function(data){
-      var row = '';
       $.this(data,function(index,obj){
+
+
       })
     }
   });
 };
-=======
-}
->>>>>>> 127b1f9caf376408512d7c766b2b4e4851a029d6
+
+//edit movie on table
+function editMovie(id){
+  var model ={
+    Title:document.getElementById('Title${id}').innerText,
+    Director:document.getElementById('Director${id}').innerText,
+    Genre:document.getElementById('Genre${id}').innerText
+  };
+  $.ajax({
+    url: `https://localhost:44352/api/movie/${id}/`,
+    dataType: 'json',
+    type: 'put',
+    contentType: 'application/json',
+    data: JSON.stringify(model),
+    success: function(data){
+      $("#all-movies").append(</tr>);
+      $("#response pre").html(data);
+    }
+    error: function(jqXhr, textStatus, errorThrown){
+      console.log("error was here")
+    }
+
+    })
+    }
+  });
+};
