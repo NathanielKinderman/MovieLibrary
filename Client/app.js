@@ -13,7 +13,13 @@
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
               console.log("success");
-              var row = "<tr><td>" + dict.Title + "</td><td>" + dict.Director + "</td><td>" + dict.Genre + "</td><tr>";
+              var row =
+              "<tr><td>"
+              + dict.Title + "</td><td>"
+              + dict.Director + "</td><td>"
+              + dict.Genre + "</td><td>"
+              + `<button onclick="editMovie()">Edit</button>` +
+              "</td><tr>";
               $("#all-movies").append(row);
             },
             error: function( jqXhr, textStatus, errorThrown ){
@@ -38,7 +44,13 @@ function getAllMovies(){
         success: function ( data ){
           var row = '';
             $.each(data,function (index, obj){
-           row += "<tr><td>" + obj.Title + "</td><td>" + obj.Director + "</td><td>" + obj.Genre + "</td><tr>";
+           row +=
+           "<tr><td>"
+           + obj.Title + "</td><td>"
+           + obj.Director + "</td><td>"
+           + obj.Genre + "</td><td>"
+           + `<button onclick="editMovie(${obj.MovieId})">Edit</button>` +
+           "</td><tr>";
             });
             $("#all-movies").append(row);
         }
@@ -46,26 +58,3 @@ function getAllMovies(){
 }
 
 $(document).ready(getAllMovies);
-
-//get by id
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//edit
-function editMovie(id){
-
-}

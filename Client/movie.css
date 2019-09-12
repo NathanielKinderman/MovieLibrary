@@ -26,3 +26,19 @@ th{
   padding: 8px;
   text-align: center;
 }
+
+h3{
+  font-size: 30px;
+  color: white;
+  text-decoration: underline;
+}
+
+h1{
+  font-size: 60px;
+  font-family: "Comic Sans Ms", cursive, sans-serif;
+  color: white;
+}
+
+h2{
+  color: white;
+}
