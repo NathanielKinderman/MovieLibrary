@@ -44,3 +44,19 @@ $(document).ready(function(){
       }
   });
 });
+
+//getbyid
+function getMovieId(id){
+  $ajax({
+    url: 'https://localhost:44352/api/movie/ + id +/'',
+    dataType: 'json',
+    type: 'get',
+    contentType: 'application/json',
+    data: JSON,
+    success: function(data){
+      var row = '';
+      $.this(data,function(index,obj){
+      })
+    }
+  });
+};
