@@ -7,9 +7,9 @@ table {
   width: 100%;
 }
 
-td, th {
-  border: 1px solid black;
-  background-color: white;
+td {
+  border: 2px solid black;
+  background-color: yellow;
   text-align: left;
   padding: 8px;
   text-align: center;
@@ -17,4 +17,12 @@ td, th {
 
 tr:nth-child(even) {
   background-color: white;
+}
+
+th{
+  border: 2px solid black;
+  background-color: white;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
 }
