@@ -58,3 +58,47 @@ function getAllMovies(){
 }
 
 $(document).ready(getAllMovies);
+
+
+//getbyid
+function getMovieId(id){
+  $.ajax({
+    url: `https://localhost:44352/api/movie/${id}/`,
+    dataType: 'json',
+    type: 'get',
+    contentType: 'application/json',
+    data: JSON,
+    success: function(data){
+      $.this(data,function(index,obj){
+
+
+      })
+    }
+  });
+};
+
+//edit movie on table
+function editMovie(id){
+  var model ={
+    Title:document.getElementById('Title${id}').innerText,
+    Director:document.getElementById('Director${id}').innerText,
+    Genre:document.getElementById('Genre${id}').innerText
+  };
+  $.ajax({
+    url: `https://localhost:44352/api/movie/${id}/`,
+    dataType: 'json',
+    type: 'put',
+    contentType: 'application/json',
+    data: JSON.stringify(model),
+    success: function(data){
+      $("#all-movies").append(</tr>);
+      $("#response pre").html(data);
+    }
+    error: function(jqXhr, textStatus, errorThrown){
+      console.log("error was here")
+    }
+
+    })
+    }
+  });
+};
