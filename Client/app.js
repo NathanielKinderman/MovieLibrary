@@ -85,7 +85,6 @@ function editMovie(id){
   });
 }
 
-// document.getElementById('#title').value = "movie name"
 
 function populateMovie(id){
   $.ajax({
@@ -95,9 +94,9 @@ function populateMovie(id){
     contentType: 'application/json',
     data: JSON,
     success: function(data){
-      document.getElementById('#title').value = data.Title;
-      document.getElementById('#director').value = data.Director;
-      document.getElementById('#genre').value = data.Genre;
+      document.getElementById('title').value = data.Title;
+      document.getElementById('director').value = data.Director;
+      document.getElementById('genre').value = data.Genre;
       }
     });
 }
