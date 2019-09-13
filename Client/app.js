@@ -13,14 +13,8 @@
             data: JSON.stringify(dict),
             success: function( data, textStatus, jQxhr ){
               console.log("success");
-              var row =
-              "<tr><td>"
-              + dict.Title + "</td><td>"
-              + dict.Director + "</td><td>"
-              + dict.Genre + "</td><td>"
-              + `<button onclick="editMovie()">Edit</button>` +
-              "</td><tr>";
-              $("#all-movies").append(row);
+              document.getElementById("all-movies").innerHTML = "";
+              getAllMovies();
             },
             error: function( jqXhr, textStatus, errorThrown ){
               console.log( errorThrown );
@@ -42,14 +36,14 @@ function getAllMovies(){
         async: true,
         data: JSON,
         success: function ( data ){
-          var row = '';
+          var row = `<tr><th>Title</th><th>Director</th><th>Genre</th><th></th></tr>`;
             $.each(data,function (index, obj){
            row +=
            "<tr><td>"
-           + obj.Title + "</td><td>"
+           + `<button onclick="getMovieId(${obj.MovieId})">  ${obj.Title} </button></td><td>`
            + obj.Director + "</td><td>"
            + obj.Genre + "</td><td>"
-           + `<button onclick="editMovie(${obj.MovieId})">Edit</button>` +
+           + `<button onclick="populateMovie(${obj.MovieId})">Edit</button>` +
            "</td><tr>";
             });
             $("#all-movies").append(row);
@@ -58,7 +52,6 @@ function getAllMovies(){
 }
 
 $(document).ready(getAllMovies);
-
 
 //getbyid
 function getMovieId(id){
@@ -69,36 +62,42 @@ function getMovieId(id){
     contentType: 'application/json',
     data: JSON,
     success: function(data){
-      $.this(data,function(index,obj){
-
-
-      })
+    alert("Title: " + data.Title);
+    alert("Director: " + data.Director);
+    alert("Genre: " + data.Genre);
     }
   });
-};
+}
 
 //edit movie on table
 function editMovie(id){
-  var model ={
-    Title:document.getElementById('Title${id}').innerText,
-    Director:document.getElementById('Director${id}').innerText,
-    Genre:document.getElementById('Genre${id}').innerText
-  };
   $.ajax({
     url: `https://localhost:44352/api/movie/${id}/`,
     dataType: 'json',
     type: 'put',
     contentType: 'application/json',
-    data: JSON.stringify(model),
+    data: JSON.stringify(movie),
     success: function(data){
-      $("#all-movies").append(</tr>);
-      $("#response pre").html(data);
-    }
+    },
     error: function(jqXhr, textStatus, errorThrown){
       console.log("error was here")
     }
-
-    })
-    }
   });
-};
+}
+
+// document.getElementById('#title').value = "movie name"
+
+function populateMovie(id){
+  $.ajax({
+    url: `https://localhost:44352/api/movie/${id}/`,
+    dataType: 'json',
+    type: 'get',
+    contentType: 'application/json',
+    data: JSON,
+    success: function(data){
+      document.getElementById('#title').value = data.Title;
+      document.getElementById('#director').value = data.Director;
+      document.getElementById('#genre').value = data.Genre;
+      }
+    });
+}

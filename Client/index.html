@@ -11,7 +11,6 @@
 <div id="response">
     <pre></pre>
 </div>
-
 <center><form id="my-form">
     <input type="text" name="title" placeholder="Title" />
     <input type="text" name="director" placeholder="Director" />
@@ -24,14 +23,19 @@
 <h3>List Of Movies In Library</h3>
 <div style="width:700px;padding:20px;S">
 <table id="all-movies" border="1" class="table">
-  <tr>
-    <th>Title</th>
-    <th>Director</th>
-    <th>Genre</th>
-    <th></th>
-  </tr>
 </table></center>
 </div>
+<center><h4>Edit Your Movie</h4></center>
+<div id="hello">
+    <pre></pre>
+</div>
+<center><form id="my-editForm">
+    <input type="text" name="title" id="title"placeholder="Title" />
+    <input type="text" name="director" id="director"placeholder="Director" />
+    <input type="text" name="genre" id="genre"placeholder="Genre" />
+
+    <button type="submit">Update</button>
+</form></center>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="./app.js"></script>
 
