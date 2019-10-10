@@ -46,9 +46,9 @@ namespace WebAPISample.Controllers
 
         // PUT api/values/5 
         [HttpPut]
-        public IHttpActionResult Put(int id, [FromBody]Movie value)
+        public IHttpActionResult Put([FromBody]Movie value)
         {
-            var movieToEdit = db.Movies.Find(id);
+            var movieToEdit = db.Movies.Find(value.MovieId);
             movieToEdit.Title = value.Title;
             movieToEdit.Director = value.Director;
             movieToEdit.Genre = value.Genre;

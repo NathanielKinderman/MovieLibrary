@@ -72,18 +72,17 @@ function getMovieId(id){
 }
 
 //edit movie on table
-//Can get the movie to edit and update but missing the part where you are passing the id into the function.  If hardcoded Id=1 is passed in it will update object at movieid=1.
 (function($){
 function editMovie(e){
 // document.getElementById('movieId')
   var newValue = {
+    MovieId : document.getElementById('movieId').value,
     Title : this["title"].value,
     Director: this["director"].value,
-    Genre: this ["genre"].value
+    Genre: this["genre"].value
   };
   $.ajax({
-    url: `https://localhost:44352/api/movie/${1}/`,//this is where the id would need to be passed in to work correctly
-    dataType: 'json',
+    url: `https://localhost:44352/api/movie/`,
     type: 'put',
     contentType: 'application/json',
     data: JSON.stringify(newValue),
@@ -93,7 +92,7 @@ function editMovie(e){
       getAllMovies();
     },
     error: function(jqXhr, textStatus, errorThrown){
-      console.log("error was here")
+      console.log("error was here " + textStatus + " " +  errorThrown )
     }
   });
   e.preventDefault();
@@ -112,6 +111,7 @@ function populateMovie(id){
       document.getElementById('title').value = data.Title;
       document.getElementById('director').value = data.Director;
       document.getElementById('genre').value = data.Genre;
+      document.getElementById('movieId').value = data.MovieId;
       }
     });
 }
