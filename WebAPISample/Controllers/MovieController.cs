@@ -24,9 +24,8 @@ namespace WebAPISample.Controllers
             // Retrieve all movies from db logic
             return Ok(movies);
         }
-
+     
         // GET api/values/5
-
         public IHttpActionResult Get(int id)
         {
             // Retrieve movie by id from db logic
